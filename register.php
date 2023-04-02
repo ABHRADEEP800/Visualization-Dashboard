@@ -58,8 +58,8 @@
       }
     </style>
     <!----------------------------------- main body -------------------------------->
-    <section>
-      <div class="container-fluid mt-1">
+
+      <div class="container-fluid mt-4">
         <div class="row d-flex justify-content-center align-items-center">
           <div class="col-md-9 col-lg-6 col-xl-5">
             <img
@@ -71,12 +71,12 @@
           <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
             <form method="post">
               <div class="divider d-flex align-items-center mb-4">
-                <h2 class="text-center">Signup</h2>
+                <h2 class="text-center"> Signup </h2>
               </div>
               <!-- Name input -->
               
               <div  class="d-flex ">
-                <div  class="form-outline pe-1 col-6 mb-4">
+                <div  class="form-outline pe-1 col-6 mb-2">
                 <label class="form-label" for="form3Example3"
                   >First Name</label
                 >
@@ -88,7 +88,7 @@
                   placeholder="Enter your First name" required
                 />
               </div>
-              <div class="form-outline ps-1 col-6 mb-4">
+              <div class="form-outline ps-1 col-6 mb-2">
                 <label class="form-label" for="form3Example3"
                   >Last Name</label
                 >
@@ -104,7 +104,7 @@
               
 
               <!-- Email input -->
-              <div class="form-outline mb-4">
+              <div class="form-outline mb-2">
                 <label class="form-label" for="form3Example3"
                   >Email address</label
                 >
@@ -118,7 +118,7 @@
               </div>
 
               <!-- Password input -->
-              <div class="form-outline mb-3">
+              <div class="form-outline mb-2">
                 <label class="form-label" for="form3Example4">Password</label>
                 <input
                   type="password"
@@ -130,7 +130,7 @@
               </div>
 
               <!-- Confirm Password input -->
-              <div class="form-outline mb-3">
+              <div class="form-outline mb-2">
                 <label class="form-label" for="form3Example4"
                   >Confirm Password</label
                 >
@@ -155,7 +155,7 @@
               </div> 
 
               <!-- Submit button --> 
-              <div class="text-center text-lg-start mt-4 pt-2">
+              <div class="text-center text-lg-start mt-1 pt-1">
                 <button
                   type="submit"
                   name="signup"
@@ -165,11 +165,14 @@
                   Register
                 </button>
               </div>
+              <div class="mt-2">
+            <p class="text-center">Already have an account? <a href="Index.php">Login</a></p>
+          </div>
             </form>
           </div>
         </div>
       </div>
-    </section>
+
     <div class="d-flex justify-content-center">
   
             <p>

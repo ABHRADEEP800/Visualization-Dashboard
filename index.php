@@ -107,7 +107,7 @@ exit;
         <form method="post">
 
         <div class="divider d-flex align-items-center my-4">
-            <H2 class="text-center">Login</H2>
+            <H2 class="text-center"> Login </H2>
           </div>
 
           <!-- Email input -->
