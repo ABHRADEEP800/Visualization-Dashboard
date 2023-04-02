@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Signup</title>
+    <title>Register</title>
     <link rel="icon" type="image/x-icon" href="assets/svg-logo/logo1.svg">
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -37,12 +37,7 @@
          })
      </script>
      
-    <!----------------------------------header -------------------------- -->
-    <?php
-    // including header file
-        include 'header.php';
-    ?>
-    <!-------------------------------------------------body----------------------------------------------------------->
+    <!----------------------------------------------body----------------------------------------------------------->
     
     <!------------------------- css  ----------------------------->
     <style>
@@ -64,11 +59,11 @@
     </style>
     <!----------------------------------- main body -------------------------------->
     <section>
-      <div class="container-fluid h-custom">
+      <div class="container-fluid mt-1">
         <div class="row d-flex justify-content-center align-items-center">
           <div class="col-md-9 col-lg-6 col-xl-5">
             <img
-              src="assets/image/signup.svg"
+              src="assets/image/register-logo.svg"
               class="img-fluid"
               alt="Sample image"
             />
@@ -148,12 +143,7 @@
                 />
               </div>
 
-              <!-- User Type -->
-              <label class="form-label">Choose User Type</label>
-              <select class="form-select" name="utype" aria-label="select example">
-                <option value="Customer">Customer</option>
-                <option value="Seller">Seller</option>
-              </select>
+              
               <!-- captcha -->
               <div class="form-outline mb-3">
                 <label class="form-label" for="form3Example4">Captcha</label><br>
@@ -180,6 +170,16 @@
         </div>
       </div>
     </section>
+    <div class="d-flex justify-content-center">
+  
+            <p>
+              Made with
+              <i class="fa-solid fa-heart fa-beat" style="color: #ff0000;"></i>
+              in India
+            </p>
+
+ 
+</div>
     <?php
    
       // check if signup button is clicked
@@ -274,10 +274,6 @@
       }
     ?>
 
-    <!-----------------------footer  ------------------------>
-    <?php
-      // including footer file
-      include 'footer.php';
-    ?>
+    
   </body>
 </html>
