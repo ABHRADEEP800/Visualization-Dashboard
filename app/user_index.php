@@ -88,7 +88,7 @@ $sql="SELECT `insight`  FROM `data`
      </script>
 
     <!-- ----------------------------------------------------Main Content-------------------------------------------------------- -->
-    <div class="col-md-10 mx-auto ">
+    <div class="col-md-12 mx-auto ">
     <div class="row">
     <div class="col-xl-3 col-lg-6">
             <div class="card l-bg-cherry">
@@ -110,7 +110,7 @@ $sql="SELECT `insight`  FROM `data`
         <div class="col-xl-3 col-lg-6">
             <div class="card l-bg-orange-dark">
                 <div class="card-statistic-3 p-4">
-                    <div class="card-icon pe-2 card-icon-large"><i class="fas fa-shopping-cart"></i></div>
+                    <div class="card-icon pe-2 card-icon-large"><i class="fas fa-search-location"></i></div>
                     <div class="mb-4">
                         <h5 class="card-title mb-0">Total Source</h5>
                     </div>
@@ -127,7 +127,7 @@ $sql="SELECT `insight`  FROM `data`
         <div class="col-xl-3 col-lg-6">
             <div class="card l-bg-blue-dark">
                 <div class="card-statistic-3 p-4">
-                    <div class="card-icon pe-2 card-icon-large"><i class="fas fa-users"></i></div>
+                    <div class="card-icon pe-2 card-icon-large"><i class="fas fa-building"></i></div>
                     <div class="mb-4">
                         <h5 class="card-title mb-0">Total Sector</h5>
                     </div>
@@ -144,7 +144,7 @@ $sql="SELECT `insight`  FROM `data`
         <div class="col-xl-3 col-lg-6">
             <div class="card l-bg-green-dark">
                 <div class="card-statistic-3 p-4">
-                    <div class="card-icon pe-2 card-icon-large"><i class="fas fa-dollar-sign"></i></div>
+                    <div class="card-icon pe-2 card-icon-large"><i class="fas fa-lightbulb"></i></div>
                     <div class="mb-4">
                         <h5 class="card-title mb-0">Total Insight</h5>
                     </div>
@@ -161,31 +161,21 @@ $sql="SELECT `insight`  FROM `data`
     </div>
 </div>
 <div class="row justify-content-end">
-    <div class="col-lg-4 col-md-4 col-sm-12">
-        <div class="card l-bg-green-dark">
-            <div class="card-statistic-3 p-4">
-                <div class="card-icon pe-2 card-icon-large"><i class="fas fa-filter"></i></div>
-                <div class="mb-4">
-                    <h5 class="card-title mb-0">Filters</h5>
-                    <div class="row align-items-center mb-2 d-flex">
-                        <div class="col-7">
-                            <form action="user_index.php" method="post">
-                                <select name="filter" id="filter" class="form-control">
-                                    <option >Select Filter</option>
-                                    <option value="endyear">End year</option>
-                                    <option value="2">Source</option>
-                                    <option value="3">Sector</option>
-                                </select>
-                                </div>
-                                <div class="col-5">
-                                <input type="submit" name="filter_submit" value="Apply" class="btn btn-primary mt-2">
-                                </div>
-                            </form>
-                            </div>
-                            </div>
-                            </div>
-                            </div>
-                            </div>
+   
+   
+    <div class="col-md-4 col-lg-4 col-sm-12 pe-5">
+        <form action="" method="post">
+            <div class="input-group mb-3">
+                <select class="form-select" name="filter" id="filter">
+                    <option value="endyear">End Year</option>
+                    <option value="startyear">Start Year</option>
+                    <option value="sector">Sector</option>
+                    <option value="source">Source</option>
+                    <option value="topic">Topic</option>
+                </select>
+                <button class="btn btn-primary pe-2" type="submit" name="filter_submit">Filter</button>
+            </div>
+        </form>
                     
 
     </div>
@@ -203,16 +193,68 @@ $sql="SELECT `insight`  FROM `data`
     </div>
     <div class="col-md-6 col-lg-6 col-sm-12 mx-auto">
         <div class="card">
-            <div class="card-header">
-                <h4>Insight</h4>
-            </div>
             <div class="card-body">
-                <canvas id="myChart" width="400" height="200"></canvas>
+                <canvas id="likelihood1" width="400" height="200"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-lg-6 col-sm-12 mx-auto">
+        <div class="card">
+            
+            <div class="card-body">
+                <canvas id="relevence" width="400" height="200"></canvas>
             </div>
         </div>
 
     </div>
+    <div class="col-md-6 col-lg-6 col-sm-12 mx-auto">
+        <div class="card">
+            <div class="card-body">
+                <canvas id="year" width="400" height="200"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
 
+<div class="row">
+    <div class="col-md-6 col-lg-6 col-sm-12 mx-auto">
+        <div class="card">
+            
+            <div class="card-body">
+                <canvas id="country" width="400" height="200"></canvas>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-6 col-lg-6 col-sm-12 mx-auto">
+        <div class="card">
+            <div class="card-body">
+                <canvas id="topics" width="400" height="200"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-lg-6 col-sm-12 mx-auto">
+        <div class="card">
+            
+            <div class="card-body">
+                <canvas id="religion" width="400" height="200"></canvas>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-6 col-lg-6 col-sm-12 mx-auto">
+        <div class="card">
+            <div class="card-body">
+                <canvas id="city" width="400" height="200"></canvas>
+            </div>
+        </div>
+    </div>
 </div>
  </body>
  </html>
@@ -221,26 +263,23 @@ $sql="SELECT `insight`  FROM `data`
  <?php
  if(isset($_POST['filter_submit'])){
     $filter= $_POST['filter'];
+
     if($filter =='endyear'){
     
-// Assuming that you have already fetched data from your database and stored it in the $rows variable
-// The $rows variable should contain an array of associative arrays, where each associative array represents a row from your database table
-
-// Create an empty array to store the end years and their corresponding intensity sums
 $endyear_intensity_sum = [];
 
 foreach ($row as $row) {
   $endyear = $row['end_year'];
   $intensity = $row['intensity'];
   
-  // If the current end year already exists in the $endyear_intensity_sum array, then add the current intensity to the existing sum
-  if (isset($endyear_intensity_sum[$endyear])) {
-    $endyear_intensity_sum[$endyear] += $intensity;
-  }
-  // If the current end year does not exist in the $endyear_intensity_sum array, then create a new entry with the current end year and intensity
-  else {
-    $endyear_intensity_sum[$endyear] = $intensity;
-  }
+    // Check if the $endyear_intensity_sum array already has an entry for the current end year
+    if (array_key_exists($endyear, $endyear_intensity_sum)) {
+      // If the $endyear_intensity_sum array already has an entry for the current end year, then add the current intensity to the existing intensity sum
+      $endyear_intensity_sum[$endyear] += $intensity;
+    } else {
+      // If the $endyear_intensity_sum array does not have an entry for the current end year, then create a new entry for the current end year and set the intensity sum to the current intensity
+      $endyear_intensity_sum[$endyear] = $intensity;
+    }
 }
 //sort array in year assending
 ksort($endyear_intensity_sum);
@@ -248,6 +287,7 @@ ksort($endyear_intensity_sum);
 
 // Convert the $endyear_intensity_sum array to a JSON string so that it can be passed to JavaScript
 $endyear_intensity_sum_json = json_encode($endyear_intensity_sum);
+
 
 
 echo "

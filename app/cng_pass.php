@@ -61,15 +61,19 @@ if(!isset($_SESSION['user'])){
             $email=$_SESSION['user']; // Get the admin email from the session.
         ?>
 
-        <div class="container ">
+        <div class="container-fluid mt-2 ">
             <form method="post" enctype="multipart/form-data">
-                <div class="px-auto">
-                    <h1 class="text-center">Change Your Password</h1>
+                
+                <div class="d-flex justify-content-center">
+                <div class="card col-lg-6 col-md-6 col-sm-10 mt-4">
+                <div class="card-header">
+                    <h3 class="mb-0 text-center">Change Password</h3>
                 </div>
-                <div class="flex mx-auto col-6 " >
+                    <div class="card-body">
+                <div class="flex mx-auto  " >
                     <div class="form-outline mb-4">
                         <label class="form-label" for="form4Example1">Email</label>
-                        <input type="text" name="product_name" id="form4Example1" value="<?=$email?>" disabled class="form-control" />
+                        <input type="text" name="email" id="form4Example1" value="<?=$email?>" disabled class="form-control" />
                     </div>
                     <div class="form-outline mb-4">
                         <label class="form-label" for="form4Example2">Enter Old Password</label>
@@ -88,9 +92,14 @@ if(!isset($_SESSION['user'])){
                 <div class="d-flex justify-content-center">
                     <button type="submit" name="update" class="btn btn-primary btn-block  mb-4">Change Password</button>
                 </div>
+                </div>
                 
             </form>
         </div>
+    </div>
+        </div>
+    </div>
+
 <?php
 if(isset($_POST["update"])) 
 { 
