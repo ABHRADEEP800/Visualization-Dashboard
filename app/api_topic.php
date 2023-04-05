@@ -5,7 +5,10 @@ if(!isset($_SESSION['user'])){
     header("Location: ../index.php");
 }
 //Get Data From Api
- $sql="SELECT * FROM `data`";
+ $sql="SELECT data.topic, SUM(`intensity`) AS intensity ,SUM(`likelihood`)AS likelihood,SUM(`relevance`)AS relevance,COUNT(DISTINCT`topic`) AS topicc,COUNT(DISTINCT`country`)AS country,COUNT(DISTINCT`start_year`) AS start_year,COUNT(DISTINCT`region`) AS region,COUNT(DISTINCT`city`) AS city
+ FROM data
+ WHERE data.topic != ' ' 
+ GROUP BY data.topic;";
 
 $result=mysqli_query($conn,$sql);
 $num=mysqli_num_rows($result);

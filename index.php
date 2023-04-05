@@ -30,7 +30,7 @@ if(isset($_COOKIE['user']))
     $_SESSION['user'] = $email;
 
     // if customer redirecting to  index page
-    echo "<script>window.location.href='user_index.php'</script>";
+    echo "<script>window.location.href='app/user_index.php'</script>";
   }
 
 }
@@ -41,7 +41,7 @@ if(isset($_COOKIE['user']))
 
 // if user is logged in, redirect to index page
 if (isset($_SESSION['user'])) {
-  header('location: user_index.php');
+  header('location: app/user_index.php');
 exit;
 }
 

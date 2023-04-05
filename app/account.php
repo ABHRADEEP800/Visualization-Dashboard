@@ -97,7 +97,7 @@ if(!isset($_SESSION['user'])){
                   <div class="col-sm-9">
                     <div class="row">
                     <div class="col-sm-6">
-                      <input type="text" class="form-control" name="fname" value="<?=$fname?>" placeholder="First Name" required>
+                      <input type="text" class="form-control mb-2" name="fname" value="<?=$fname?>" placeholder="First Name" required>
                     </div> 
                     <div class="col-sm-6">
                       <input type="text" class="form-control" name="lname" value="<?=$lname?>" placeholder="Last Name" required>

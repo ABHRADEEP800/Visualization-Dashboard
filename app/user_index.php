@@ -60,6 +60,8 @@ $sql="SELECT `insight`  FROM `data`
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="../assets/css/main.css" />
     
+   
+    
 </head>
 
 <?php
@@ -97,7 +99,7 @@ function Alertshow(type, msg){
                 <div class="card-statistic-3 p-4">
                     <div class="card-icon pe-2 card-icon-large"><i class="fas fa-file"></i></div>
                     <div class="mb-4">
-                        <h5 class="card-title mb-0">Total Topic</h5>
+                        <h5 class="card-title mb-0">Total Topics</h5>
                     </div>
                     <div class="row align-items-center mb-2 d-flex">
                         <div class="col-8">
@@ -114,7 +116,7 @@ function Alertshow(type, msg){
                 <div class="card-statistic-3 p-4">
                     <div class="card-icon pe-2 card-icon-large"><i class="fas fa-search-location"></i></div>
                     <div class="mb-4">
-                        <h5 class="card-title mb-0">Total Source</h5>
+                        <h5 class="card-title mb-0">Total Sources</h5>
                     </div>
                     <div class="row align-items-center mb-2 d-flex">
                         <div class="col-8">
@@ -131,7 +133,7 @@ function Alertshow(type, msg){
                 <div class="card-statistic-3 p-4">
                     <div class="card-icon pe-2 card-icon-large"><i class="fas fa-building"></i></div>
                     <div class="mb-4">
-                        <h5 class="card-title mb-0">Total Sector</h5>
+                        <h5 class="card-title mb-0">Total Sectors</h5>
                     </div>
                     <div class="row align-items-center mb-2 d-flex">
                         <div class="col-8">
@@ -148,7 +150,7 @@ function Alertshow(type, msg){
                 <div class="card-statistic-3 p-4">
                     <div class="card-icon pe-2 card-icon-large"><i class="fas fa-lightbulb"></i></div>
                     <div class="mb-4">
-                        <h5 class="card-title mb-0">Total Insight</h5>
+                        <h5 class="card-title mb-0">Total Insights</h5>
                     </div>
                     <div class="row align-items-center mb-2 d-flex">
                         <div class="col-8">
@@ -178,10 +180,10 @@ function Alertshow(type, msg){
             <div class="input-group mb-3">
                 <select class="form-select" name="filter" id="filter">
                     <option value="endyear">End Year</option>
-                    <option value="startyear">Start Year</option>
-                    <option value="sector">Sector</option>
-                    <option value="source">Source</option>
                     <option value="topic">Topic</option>
+                    <option value="sector">Sector</option>
+                    <option value="region">Region</option>
+                    
                 </select>
                 <button class="btn btn-primary pe-2" type="submit" name="filter_submit">Filter</button>
             </div>
@@ -266,15 +268,14 @@ function Alertshow(type, msg){
         </div>
     </div>
 </div>
- </body>
- </html>
+ 
 
  
  <?php
  if(isset($_POST['filter_submit'])){
     $filter= $_POST['filter'];
 
-    if($filter =='endyear'){
+if($filter ==='endyear'){
 $url = "http://localhost/Assignment/app/api_end_year.php";
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
@@ -333,6 +334,191 @@ echo "<script>Alertshow('alert-success', 'End year filter applied');</script>";
 
 
 }
+elseif($filter ==='topic'){
+    
+    $url = "http://localhost/Assignment/app/api_topic.php";
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $result=curl_exec($ch);
+    curl_close($ch);
+    $data = json_decode($result, true);
+    //get data from each array
+    $label = array();
+    foreach($data['data'] as $key => $value){
+        $label[]= $value['topic'];
+    }
+    //store $label string array into a javascript string type array
+    echo "<script>var label = ".json_encode($label).";</script>";
+    $intensity = array_column($data['data'], 'intensity');
+    //get data from $year and format it like [1,2,3]
+    $intensity = implode(",", $intensity);
+    //store $label into a javascript var
+    echo "<script>var intensity = [$intensity];</script>";
+    
+    $likelihood = array_column($data['data'], 'likelihood');
+    //get data from $year and format it like [1,2,3]
+    $likelihood = implode(",", $likelihood);
+    //store $label into a javascript var
+    echo "<script>var likelihood = [$likelihood];</script>";
+    
+    $relevance = array_column($data['data'], 'relevance');
+    $relevance = implode(",", $relevance);
+    echo "<script>var relevance = [$relevance];</script>";
+    
+    $topicc= array_column($data['data'], 'topicc');
+    $topicc = array_map(function($n) { return $n - 1; }, $topicc);
+    $topicc = implode(",", $topicc);
+    echo "<script>var topic = [$topicc];</script>";
+    
+    $country = array_column($data['data'], 'country');
+    $country = array_map(function($n) { return $n - 1; }, $country);
+    $country = implode(",", $country);
+    echo "<script>var country = [$country];</script>";
+    
+    $start_year = array_column($data['data'], 'start_year');
+    $start_year = array_map(function($n) { return $n - 1; }, $start_year);
+    $start_year = implode(",", $start_year);
+    echo "<script>var start_year = [$start_year];</script>";
+    
+    $region = array_column($data['data'], 'region');
+    $region = array_map(function($n) { return $n - 1; }, $region);
+    $region = implode(",", $region);
+    echo "<script>var region = [$region];</script>";
+    
+    $city = array_column($data['data'], 'city');
+    $city = array_map(function($n) { return $n - 1; }, $city);
+    $city = implode(",", $city);
+    echo "<script>var city = [$city];</script>";
+    echo "<script>Alertshow('alert-success', 'Topic filter applied');</script>";
+   
+  
+    
+}
+elseif($filter ==='sector'){
+    
+    $url = "http://localhost/Assignment/app/api_sector.php";
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $result=curl_exec($ch);
+    curl_close($ch);
+    $data = json_decode($result, true);
+    //get data from each array
+    $label = array();
+    foreach($data['data'] as $key => $value){
+        $label[]= $value['sector'];
+    }
+    //store $label string array into a javascript string type array
+    echo "<script>var label = ".json_encode($label).";</script>";
+
+    $intensity = array_column($data['data'], 'intensity');
+    //get data from $year and format it like [1,2,3]
+    $intensity = implode(",", $intensity);
+    //store $label into a javascript var
+    echo "<script>var intensity = [$intensity];</script>";
+    
+    $likelihood = array_column($data['data'], 'likelihood');
+    //get data from $year and format it like [1,2,3]
+    $likelihood = implode(",", $likelihood);
+    //store $label into a javascript var
+    echo "<script>var likelihood = [$likelihood];</script>";
+    
+    $relevance = array_column($data['data'], 'relevance');
+    $relevance = implode(",", $relevance);
+    echo "<script>var relevance = [$relevance];</script>";
+    
+    $topicc= array_column($data['data'], 'topicc');
+    $topicc = array_map(function($n) { return $n - 1; }, $topicc);
+    $topicc = implode(",", $topicc);
+    echo "<script>var topic = [$topicc];</script>";
+    
+    $country = array_column($data['data'], 'country');
+    $country = array_map(function($n) { return $n - 1; }, $country);
+    $country = implode(",", $country);
+    echo "<script>var country = [$country];</script>";
+    
+    $start_year = array_column($data['data'], 'start_year');
+    $start_year = array_map(function($n) { return $n - 1; }, $start_year);
+    $start_year = implode(",", $start_year);
+    echo "<script>var start_year = [$start_year];</script>";
+    
+    $region = array_column($data['data'], 'region');
+    $region = array_map(function($n) { return $n - 1; }, $region);
+    $region = implode(",", $region);
+    echo "<script>var region = [$region];</script>";
+    
+    $city = array_column($data['data'], 'city');
+    $city = array_map(function($n) { return $n - 1; }, $city);
+    $city = implode(",", $city);
+    echo "<script>var city = [$city];</script>";
+    echo "<script>Alertshow('alert-success', 'Sector filter applied');</script>";
+   
+  
+    
+}
+elseif($filter ==='region'){
+    
+    $url = "http://localhost/Assignment/app/api_region.php";
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $result=curl_exec($ch);
+    curl_close($ch);
+    $data = json_decode($result, true);
+    //get data from each array
+    $label = array();
+    foreach($data['data'] as $key => $value){
+        $label[]= $value['region'];
+    }
+    //store $label string array into a javascript string type array
+    echo "<script>var label = ".json_encode($label).";</script>";
+
+    $intensity = array_column($data['data'], 'intensity');
+    //get data from $year and format it like [1,2,3]
+    $intensity = implode(",", $intensity);
+    //store $label into a javascript var
+    echo "<script>var intensity = [$intensity];</script>";
+    
+    $likelihood = array_column($data['data'], 'likelihood');
+    //get data from $year and format it like [1,2,3]
+    $likelihood = implode(",", $likelihood);
+    //store $label into a javascript var
+    echo "<script>var likelihood = [$likelihood];</script>";
+    
+    $relevance = array_column($data['data'], 'relevance');
+    $relevance = implode(",", $relevance);
+    echo "<script>var relevance = [$relevance];</script>";
+    
+    $topicc= array_column($data['data'], 'topicc');
+    $topicc = array_map(function($n) { return $n - 1; }, $topicc);
+    $topicc = implode(",", $topicc);
+    echo "<script>var topic = [$topicc];</script>";
+    
+    $country = array_column($data['data'], 'country');
+    $country = array_map(function($n) { return $n - 1; }, $country);
+    $country = implode(",", $country);
+    echo "<script>var country = [$country];</script>";
+    
+    $start_year = array_column($data['data'], 'start_year');
+    $start_year = array_map(function($n) { return $n - 1; }, $start_year);
+    $start_year = implode(",", $start_year);
+    echo "<script>var start_year = [$start_year];</script>";
+    
+    $region = array_column($data['data'], 'regionc');
+    $region = array_map(function($n) { return $n - 1; }, $region);
+    $region = implode(",", $region);
+    echo "<script>var region = [$region];</script>";
+    
+    $city = array_column($data['data'], 'city');
+    $city = array_map(function($n) { return $n - 1; }, $city);
+    $city = implode(",", $city);
+    echo "<script>var city = [$city];</script>";
+    echo "<script>Alertshow('alert-success', 'Region filter applied');</script>";
+   
+  
+    
+}
  }
  else
  {
@@ -390,7 +576,14 @@ $city = array_column($data['data'], 'city');
 $city = array_map(function($n) { return $n - 1; }, $city);
 $city = implode(",", $city);
 echo "<script>var city = [$city];</script>";
+echo "<script>Alertshow('alert-success', 'By Default End year filter applied');</script>";
+
  }
  ?>
- 
 <script src="../assets/js/main.js"></script>
+</body>
+ </html>
+
+
+ 
+ 
