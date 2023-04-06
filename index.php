@@ -4,6 +4,7 @@ session_start();
 // including database connection file
 require('env/database.php');
 
+//check cookie
 if(isset($_COOKIE['user']))
 {
   $data = unserialize($_COOKIE['user']);
@@ -76,6 +77,8 @@ exit;
 
 
 <!-------------------------------------------------body----------------------------------------------------------->
+<!----------------------------login Form---------------------------->
+
     <div class="container-fluid mt-2">
     
         <div class="row d-flex justify-content-center align-items-center ">
@@ -89,10 +92,10 @@ exit;
                     class="img-fluid"
                     
                    
-                  />
-                </div>
-                <div class="col-md-6 col-lg-7 d-flex align-items-center">
-                  <div class="card-body p-4 p-lg-5 text-black">
+                     />
+                  </div>
+                  <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                   <div class="card-body p-4 p-lg-5 text-black">
                     <form method = "post" action="manage_user.php">
                       <div class="d-flex align-items-center mb-3 pb-1">
                         <img
@@ -152,8 +155,8 @@ exit;
                        id="form2Example3"
                         name = "remember"
                               />
-            <label class="form-check-label" for="form2Example3"> Remember me </label>
-            </div>
+                       <label class="form-check-label" for="form2Example3"> Remember me </label>
+                      </div>
 
                       <div class="pt-1 mb-2">
                         <button
@@ -163,7 +166,7 @@ exit;
                         >
                           Login
                         </button>
-                      </div>
+                        </div>
 
                       
                       <p class="mb-5 pb-lg-2" style="color: #393f81">
@@ -172,9 +175,9 @@ exit;
                       </p>
                       
                     </form>
-                  </div>
-                  </div>
-                  <div class="row">
+                    </div>
+                   </div>
+                   <div class="row">
                     <div class="col-12">
                       <div class="text-center">
                       <p class=" mb-1">
@@ -192,12 +195,7 @@ exit;
         </div>
       </div>
 
-
-
- 
 </div>
-
-<!----------------- footer  -------------->
 
 </body>
 </html>

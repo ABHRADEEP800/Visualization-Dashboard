@@ -24,7 +24,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST") // check if form is submitted
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
 
-        // taking user pass
+        // taking user pass and match with database
         $pass = $row['pass'];
 
         
@@ -63,37 +63,37 @@ if($_SERVER["REQUEST_METHOD"]=="POST") // check if form is submitted
             $result = mysqli_query($conn, $sql);
 
 
-            // setting session variable for seller
+            // setting session variable for user
             $_SESSION['user'] = $row['email'];
 
-            // if seller redirecting to seller index page
+            //  redirecting to  index page
             echo "<script>window.location.href='app/user_index.php'</script>";
           }
           else{
-            // setting session variable for seller
+            // setting session variable for user
             $_SESSION['user'] = $row['email'];
 
-            // if seller redirecting to seller index page
+            // redirecting to index page
             echo "<script>window.location.href='app/user_index.php'</script>";
           }
         }
 
        
         else{
+          // redirecting to login page if email or password didnot matches
             echo "<script>alert('Invalid Email or Password')</script>";
             echo "<script>window.location.href='index.php'</script>";
         }
       }
       else{
+        //if captcha did not match
           echo "<script>alert('Invalid Captcha')</script>";
           echo "<script>window.location.href='index.php'</script>";
       }
     }
 
 
-
-
-    // check if signup button is clicked
+    //  check if signup button is clicked
       if(isset($_POST['register'])){
 
         // check if captcha is correct
@@ -132,6 +132,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST") // check if form is submitted
 
               // check if password and confirm password matches
               if($pass==$cpass){
+                //chcek password terms
                 if (preg_match('/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/', $pass)) {
 
                 // encrypting password
@@ -142,16 +143,19 @@ if($_SERVER["REQUEST_METHOD"]=="POST") // check if form is submitted
                 $result=mysqli_query($conn,$query);
      
                 if($result){
-                    unset($_SESSION['captcha']);
+                    // if data inserted 
+                    unset($_SESSION['captcha']); 
                     echo "<script>alert('Registered Successfully')</script>";
                     echo "<script>window.location='index.php'</script>";
                 }
                 else{
+                  // if data not inserted
                     echo "<script>alert(' Registration Failed')</script>";
                     echo "<script>window.location='register.php'</script>";
                 }
               }else
               {
+                // if password does not match policy
                 echo "<script>alert('Password must contain atleast 8 characters, 1 uppercase, 1 lowercase, 1 number and 1 special character')</script>";
                 echo "<script>window.location='register.php'</script>";
                
@@ -159,6 +163,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST") // check if form is submitted
               }
             
               else{
+                // if password and confirm password does not match
                 echo "<script>alert('Password and Confirm Password does not match')</script>";
                 echo "<script>window.location='register.php'</script>";
               }

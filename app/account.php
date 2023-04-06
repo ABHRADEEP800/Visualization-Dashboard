@@ -1,4 +1,6 @@
 <?php
+// checking if user is logged in or not
+
 require('../env/database.php');
 session_start();
 if(!isset($_SESSION['user'])){
@@ -43,6 +45,7 @@ if(!isset($_SESSION['user'])){
 </head>
 
 <?php
+//including navbar
     include 'navbar.php';
 ?>
 
@@ -67,7 +70,7 @@ if(!isset($_SESSION['user'])){
   $user_id = $row['id'];
   $fname = explode(" ", $user_name)[0];
   $lname = explode(" ", $user_name)[1];
-  // update account name
+  
   // checking if update button is clicked
   if(isset($_POST['update'])){
     $user_name = $_POST['fname']." ".$_POST['lname'];
@@ -82,8 +85,10 @@ if(!isset($_SESSION['user'])){
     else{
       echo "<script>alert('Account Updation Failed')</script>";
     }
-  } // end of update button
+  } // end of if
   ?>
+
+  <!-------Account Details Form------>
   <div class="d-flex justify-content-center">
     <div class="card mb-4 mt-5 col-lg-8">
                 <div class="card-header">
@@ -120,10 +125,10 @@ if(!isset($_SESSION['user'])){
                   <div class=" col-sm-3">
                     <input type="submit" name="update" class="btn btn-primary form-control" value="Update Details">
                   </div>
-                </div>
-              </div>
-            </div>
-            </div>
+               </div>
+          </div>
+       </div>
+   </div>
 
 </body>
 </html>

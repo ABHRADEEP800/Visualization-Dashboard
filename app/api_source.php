@@ -1,10 +1,11 @@
 <?php
 require('../env/database.php');
 session_start();
+//chceck user login or not
 if(!isset($_SESSION['user'])){
     header("Location: ../index.php");
 }
-//Get Data From Api
+//sql Get Data
  $sql="SELECT data.source, SUM(`intensity`) AS intensity ,SUM(`likelihood`)AS likelihood,SUM(`relevance`)AS relevance,COUNT(DISTINCT`topic`) AS topicc,COUNT(DISTINCT`country`)AS country,COUNT(DISTINCT`start_year`) AS start_year,COUNT(DISTINCT`region`) AS regionc,COUNT(DISTINCT`city`) AS city
  FROM data
  WHERE data.source != ' ' 

@@ -1,4 +1,4 @@
-
+//define colours for chart
 var colors =  [
     '#C21E56',
     '#C12869',
@@ -518,6 +518,8 @@ var colors =  [
     '#3F000F',
     '#2B1B17'    
 ];
+
+//suffle function
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -525,11 +527,12 @@ function shuffleArray(array) {
     }
     return array;
   }
+  //suffle array to change color
     var color = shuffleArray(colors);
 
   
 
-//intensity
+//intensity Chart
 var ctx = document.getElementById('Intensity').getContext('2d'); // get the canvas element
         var myChart = new Chart(ctx, { // create a new chart
             type: 'bar',
@@ -552,7 +555,7 @@ var ctx = document.getElementById('Intensity').getContext('2d'); // get the canv
             }
         }); 
 
-        //likelihood
+        //likelihood Chart
         var ctx1 = document.getElementById('likelihood1').getContext('2d'); // get the canvas element
         var myChart = new Chart(ctx1, { // create a new chart
             type: 'line',
@@ -575,7 +578,7 @@ var ctx = document.getElementById('Intensity').getContext('2d'); // get the canv
             }
         }); 
 
-        //relevence
+//relevence Chart
 var ctx2 = document.getElementById('relevence').getContext('2d'); // get the canvas element
 var myChart = new Chart(ctx2, { // create a new chart
     type: 'polarArea',
@@ -598,7 +601,7 @@ var myChart = new Chart(ctx2, { // create a new chart
     }
 }); 
 
-//year
+//year Chart
 var ctx3 = document.getElementById('topic').getContext('2d'); // get the canvas element
 var myChart = new Chart(ctx3, { // create a new chart
     type: 'radar',
@@ -621,7 +624,7 @@ var myChart = new Chart(ctx3, { // create a new chart
     }
 }); 
 
-//Country
+//Country Chart
 var ctx4 = document.getElementById('country').getContext('2d'); // get the canvas element
 var myChart = new Chart(ctx4, { // create a new chart
     type: 'bar',
@@ -644,7 +647,7 @@ var myChart = new Chart(ctx4, { // create a new chart
     }
 }); 
 
-//start_year
+//start_year Chart
 var ctx5 = document.getElementById('start_year').getContext('2d'); // get the canvas element
 var myChart = new Chart(ctx5, { // create a new chart
     type: 'bar',
@@ -667,7 +670,7 @@ var myChart = new Chart(ctx5, { // create a new chart
     }
 });
 
-//region
+//region Chart
 var ctx6 = document.getElementById('region').getContext('2d'); // get the canvas element
 var myChart = new Chart(ctx6, { // create a new chart
     type: 'doughnut',
@@ -690,7 +693,7 @@ var myChart = new Chart(ctx6, { // create a new chart
     }
 });
 
-//city
+//city Chart
 var ctx7 = document.getElementById('city').getContext('2d'); // get the canvas element
 var myChart = new Chart(ctx7, { // create a new chart
     type: 'radar',

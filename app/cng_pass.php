@@ -1,6 +1,7 @@
 <?php
 require('../env/database.php');
 session_start();
+//chceck user login or not
 if(!isset($_SESSION['user'])){
     header("Location:../index.php");
 }
@@ -43,6 +44,7 @@ if(!isset($_SESSION['user'])){
 </head>
 
 <?php
+//including navbar
     include 'navbar.php';
 ?>
 
@@ -58,10 +60,11 @@ if(!isset($_SESSION['user'])){
 
     <!-- ----------------------------------------------------Main Content-------------------------------------------------------- -->
     <?php
+    //get data from session
             $email=$_SESSION['user']; // Get the admin email from the session.
         ?>
 
-  
+               <!--------- Change pass form------>
                 <div class="d-flex justify-content-center mt-2">
                 <div class="card col-lg-6 col-md-6 col-sm-11 mt-4">
                 <div class="card-header">

@@ -3,7 +3,7 @@ session_start();
 
 // destroy session for logout
 session_destroy();
-//destroy all cookies
+//destroy  cookie
 setcookie("user", "", time() - 3600, "/");
 
 // redirect to index page

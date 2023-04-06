@@ -38,6 +38,8 @@
      </script>
      
     <!-------------------------------------------------body----------------------------------------------------------->
+    <!----------Registration Form------------------>
+
     <div class="container-fluid mt-2">
        
         <div class="row d-flex justify-content-center align-items-center ">
@@ -51,9 +53,9 @@
                     class="img-fluid"
                     
                    
-                  />
-                </div>
-                <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                   />
+                  </div>
+                  <div class="col-md-6 col-lg-7 d-flex align-items-center">
                   <div class="card-body p-4 p-lg-5 text-black">
                     <form method = "post" action="manage_user.php">
                       <div class="d-flex align-items-center mb-3 pb-1">
@@ -64,8 +66,8 @@
                           class="me-3"
                         />
                         <span class="h2 fw-bold mb-0">Astron</span>
-                      </div>
-
+                       </div>
+ 
                       <h5
                         class="fw-normal mb-2 pb-2"
                         style="letter-spacing: 1px"
@@ -85,7 +87,7 @@
                           <label for="floatingInputFname">First Name</label>
                         </div>
 
-                        <div class="form-floating col-6 ps-1">
+                         <div class="form-floating col-6 ps-1">
                           <input
                             type="text"
                             class="form-control"
@@ -95,7 +97,7 @@
                           />
                           <label for="floatingInputLname">Last Name</label>
                         </div>
-                      </div>
+                       </div>
                       <div class="form-floating my-2">
                         <input
                           type="email"
@@ -152,9 +154,9 @@
                         <a href="index.php" style="color: #393f81">Login Here</a>
                       </p>
                     </form>
-                  </div>
-                  </div>
-                  <div class="row">
+                   </div>
+                   </div>
+                   <div class="row">
                     <div class="col-12">
                       <div class="text-center">
                       <p class=" mb-1">
@@ -171,11 +173,7 @@
           </div>
         </div>
       </div>
-
-
-
- 
-</div>
+    </div>
     
-  </body>
+</body>
 </html>

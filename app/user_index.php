@@ -1,11 +1,12 @@
 <?php
 require('../env/database.php');
 session_start();
+//chceck user login or not
 if(!isset($_SESSION['user'])){
     header("Location:../index.php");
 }
 
-
+//get data for card data
 $sql="SELECT `source`  FROM `data` 
  GROUP BY `source`";
  $result=mysqli_query($conn,$sql);   
@@ -65,6 +66,7 @@ $sql="SELECT `insight`  FROM `data`
 </head>
 
 <?php
+//including navbar
     include 'navbar.php';
 ?>
 
@@ -92,6 +94,8 @@ function Alertshow(type, msg){
 </script>
 
     <!-- ----------------------------------------------------Main Content-------------------------------------------------------- -->
+        <!-- --------------------------card------------------- -->
+
     <div class="col-md-12 mx-auto mt-5 ">
     <div class="row">
     <div class="col-xl-3 col-lg-6">
@@ -164,6 +168,9 @@ function Alertshow(type, msg){
         </div>
     </div>
 </div>
+
+    <!-- --------------Filter Section--------------------------------------------------- -->
+
 <div class="row">
     <div class="col-lg-8 col-md-8 col-sm-12" >
     <!-- alert message -->
@@ -198,6 +205,8 @@ function Alertshow(type, msg){
     </div>
 
 </div>
+    <!-- --------------------------Charts----------------------------------------- -->
+
 <div class="row">
     <div class="col-md-6 col-lg-6 col-sm-12 mx-auto">
         <div class="card">
@@ -277,18 +286,18 @@ function Alertshow(type, msg){
 
  
  <?php
- if(isset($_POST['filter_submit'])){
+ if(isset($_POST['filter_submit'])){ //when filter applied
     $filter= $_POST['filter'];
 
 
-if($filter ==='endyear'){
-$url = "http://localhost/Assignment/app/api_end_year.php";
+if($filter ==='endyear'){ // check endyear applied
+$url = "http://localhost/Assignment/app/api_end_year.php"; //url for api
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $result=curl_exec($ch);
 curl_close($ch);
-$data = json_decode($result, true);
+$data = json_decode($result, true); //get data from json decode
 //get data from each array 
 $end_year = array_column($data['data'], 'end_year');
 //get data from $year and format it like [1,2,3]
@@ -336,19 +345,19 @@ $city = array_column($data['data'], 'city');
 $city = array_map(function($n) { return $n - 1; }, $city);
 $city = implode(",", $city);
 echo "<script>var city = [$city];</script>";
-echo "<script>Alertshow('alert-success', 'End year filter applied.');</script>";
+echo "<script>Alertshow('alert-success', 'End year filter applied.');</script>";//alert message
 
 
 }
-elseif($filter ==='topic'){
+elseif($filter ==='topic'){// check topic applied
     
-    $url = "http://localhost/Assignment/app/api_topic.php";
+    $url = "http://localhost/Assignment/app/api_topic.php";//url for api
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     $result=curl_exec($ch);
     curl_close($ch);
-    $data = json_decode($result, true);
+    $data = json_decode($result, true);//get data from json decode
     //get data from each array
     $label = array();
     foreach($data['data'] as $key => $value){
@@ -396,14 +405,14 @@ elseif($filter ==='topic'){
     $city = array_map(function($n) { return $n - 1; }, $city);
     $city = implode(",", $city);
     echo "<script>var city = [$city];</script>";
-    echo "<script>Alertshow('alert-success', 'Topic filter applied.');</script>";
+    echo "<script>Alertshow('alert-success', 'Topic filter applied.');</script>"; //alert
    
   
     
 }
-elseif($filter ==='sector'){
+elseif($filter ==='sector'){ //check sector 
     
-    $url = "http://localhost/Assignment/app/api_sector.php";
+    $url = "http://localhost/Assignment/app/api_sector.php"; //api url
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -458,14 +467,14 @@ elseif($filter ==='sector'){
     $city = array_map(function($n) { return $n - 1; }, $city);
     $city = implode(",", $city);
     echo "<script>var city = [$city];</script>";
-    echo "<script>Alertshow('alert-success', 'Sector filter applied.');</script>";
+    echo "<script>Alertshow('alert-success', 'Sector filter applied.');</script>"; //alert
    
   
     
 }
-elseif($filter ==='region'){
+elseif($filter ==='region'){ //check region
     
-    $url = "http://localhost/Assignment/app/api_region.php";
+    $url = "http://localhost/Assignment/app/api_region.php"; //api url
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -520,14 +529,14 @@ elseif($filter ==='region'){
     $city = array_map(function($n) { return $n - 1; }, $city);
     $city = implode(",", $city);
     echo "<script>var city = [$city];</script>";
-    echo "<script>Alertshow('alert-success', 'Region filter applied.');</script>";
+    echo "<script>Alertshow('alert-success', 'Region filter applied.');</script>"; //alert
    
   
     
 }
-elseif($filter ==='pest'){
+elseif($filter ==='pest'){ //check pest
     
-    $url = "http://localhost/Assignment/app/api_pest.php";
+    $url = "http://localhost/Assignment/app/api_pest.php"; //api url
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -582,14 +591,14 @@ elseif($filter ==='pest'){
     $city = array_map(function($n) { return $n - 1; }, $city);
     $city = implode(",", $city);
     echo "<script>var city = [$city];</script>";
-    echo "<script>Alertshow('alert-success', 'Pest filter applied.');</script>";
+    echo "<script>Alertshow('alert-success', 'Pest filter applied.');</script>"; //alert
    
   
     
 }
-elseif($filter ==='source'){
+elseif($filter ==='source'){ //check source
     
-    $url = "http://localhost/Assignment/app/api_source.php";
+    $url = "http://localhost/Assignment/app/api_source.php"; //api url
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -644,14 +653,14 @@ elseif($filter ==='source'){
     $city = array_map(function($n) { return $n - 1; }, $city);
     $city = implode(",", $city);
     echo "<script>var city = [$city];</script>";
-    echo "<script>Alertshow('alert-success', 'Source filter applied.');</script>";
+    echo "<script>Alertshow('alert-success', 'Source filter applied.');</script>"; //alert
    
   
     
 }
-elseif($filter ==='swot'){
+elseif($filter ==='swot'){ // check swot
     
-    $url = "http://localhost/Assignment/app/api_swot.php";
+    $url = "http://localhost/Assignment/app/api_swot.php"; //api url
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -706,12 +715,12 @@ elseif($filter ==='swot'){
     $city = array_map(function($n) { return $n - 1; }, $city);
     $city = implode(",", $city);
     echo "<script>var city = [$city];</script>";
-    echo "<script>Alertshow('alert-success', 'Swot filter applied.');</script>";
+    echo "<script>Alertshow('alert-success', 'Swot filter applied.');</script>"; //alert
    
 }
-elseif($filter ==='country'){
+elseif($filter ==='country'){ //check country
     
-    $url = "http://localhost/Assignment/app/api_country.php";
+    $url = "http://localhost/Assignment/app/api_country.php"; //api url
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -766,12 +775,12 @@ elseif($filter ==='country'){
     $city = array_map(function($n) { return $n - 1; }, $city);
     $city = implode(",", $city);
     echo "<script>var city = [$city];</script>";
-    echo "<script>Alertshow('alert-success', 'Country filter applied.');</script>";
+    echo "<script>Alertshow('alert-success', 'Country filter applied.');</script>";//alert
    
 }
-elseif($filter ==='city'){
+elseif($filter ==='city'){ //check city
     
-    $url = "http://localhost/Assignment/app/api_city.php";
+    $url = "http://localhost/Assignment/app/api_city.php"; //api url 
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -826,14 +835,14 @@ elseif($filter ==='city'){
     $city = array_map(function($n) { return $n - 1; }, $city);
     $city = implode(",", $city);
     echo "<script>var city = [$city];</script>";
-    echo "<script>Alertshow('alert-success', 'City filter applied.');</script>";
+    echo "<script>Alertshow('alert-success', 'City filter applied.');</script>"; //alert
    
 }
 
  }
  else
- {
-    $url = "http://localhost/Assignment/app/api_end_year.php";
+ {  //if nothing filter applied
+    $url = "http://localhost/Assignment/app/api_end_year.php"; //api url
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -887,7 +896,7 @@ $city = array_column($data['data'], 'city');
 $city = array_map(function($n) { return $n - 1; }, $city);
 $city = implode(",", $city);
 echo "<script>var city = [$city];</script>";
-echo "<script>Alertshow('alert-success', 'By Default End year filter applied.');</script>";
+echo "<script>Alertshow('alert-success', 'By Default End year filter applied.');</script>";//alert
 
  }
  ?>
