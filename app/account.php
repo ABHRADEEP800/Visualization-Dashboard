@@ -94,6 +94,7 @@ if(!isset($_SESSION['user'])){
                 <div class="card-header">
                     <h3 class="mb-0 text-center">Account Details</h3>
                 </div>
+                <form method="post">
               <div class="card-body">
                 <div class="row">
                   <div class="col-sm-3 ">
@@ -126,6 +127,7 @@ if(!isset($_SESSION['user'])){
                     <input type="submit" name="update" class="btn btn-primary form-control" value="Update Details">
                   </div>
                </div>
+             </form> 
           </div>
        </div>
    </div>
