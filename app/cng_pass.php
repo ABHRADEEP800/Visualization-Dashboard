@@ -61,11 +61,9 @@ if(!isset($_SESSION['user'])){
             $email=$_SESSION['user']; // Get the admin email from the session.
         ?>
 
-        
-            
-                
+  
                 <div class="d-flex justify-content-center mt-2">
-                <div class="card col-lg-6 col-md-6 col-sm-12 mt-4">
+                <div class="card col-lg-6 col-md-6 col-sm-11 mt-4">
                 <div class="card-header">
                     <h3 class="mb-0 text-center">Change Password</h3>
                 </div>
