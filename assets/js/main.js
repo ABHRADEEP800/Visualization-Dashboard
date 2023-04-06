@@ -601,10 +601,10 @@ var myChart = new Chart(ctx2, { // create a new chart
     }
 }); 
 
-//year Chart
+//topic Chart
 var ctx3 = document.getElementById('topic').getContext('2d'); // get the canvas element
 var myChart = new Chart(ctx3, { // create a new chart
-    type: 'radar',
+    type: 'polarArea',
     data: {
         labels: label, // set the labels
         datasets: [{
@@ -696,7 +696,7 @@ var myChart = new Chart(ctx6, { // create a new chart
 //city Chart
 var ctx7 = document.getElementById('city').getContext('2d'); // get the canvas element
 var myChart = new Chart(ctx7, { // create a new chart
-    type: 'radar',
+    type: 'doughnut',
     data: {
         labels: label, // set the labels
         datasets: [{
