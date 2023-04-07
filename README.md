@@ -1,6 +1,5 @@
-# Welcome to [Astron]!
+# Welcome to Astron!
 
-[![Build Status](https://travis-ci.org/github/ABHRADEEP800/Visualization-Dashboard.svg?branch=main)](https://travis-ci.org/github/ABHRADEEP800/Visualization-Dashboard)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 [ASTRON](https://astron.abhradeep.com/) is a powerful visualization tool built using PHP, MySQL, ChartJS and RESTful API in PHP. With its intuitive interface, users can create stunning charts and graphs based on large datasets. The app comes with numerous filters to help users quickly and easily filter out content based on their input.
@@ -20,7 +19,7 @@ Password --> `12345`
 
 ## Installation
 
-To use [Name of the Visualization Software/Web App], follow these steps:
+To use Astron, follow these steps:
 
 1. Clone the repository or download the latest release.
 2. Create a MySQL database and import the database schema within `env` folder path.
@@ -34,7 +33,7 @@ Once logged in, users can easily create charts and graphs using the intuitive in
 
 ## Contributing
 
-Contributions to [Astron] are welcome! To contribute, follow these steps:
+Contributions to Astron are welcome! To contribute, follow these steps:
 
 1. Fork the repository.
 2. Create a new branch for your feature or bug fix.
@@ -54,15 +53,15 @@ If you have any questions or concerns, please contact the [developer](mailto:hel
 
 [Name of the Visualization Software/Web App] was created by [Your Name] with the help of the following resources:
 
-- ChartJS (https://www.chartjs.org/)
-- RESTful API in PHP (https://www.restapitutorial.com/lessons/restquicktips.html)
-- Bootstrap (https://getbootstrap.com/)
-- jQuery (https://jquery.com/)
-- MySQL (https://www.mysql.com/)
+- [ChartJS](https://www.chartjs.org/)
+- [RESTful API in PHP](https://www.restapitutorial.com/lessons/restquicktips.html)
+- [Bootstrap](https://getbootstrap.com/)
+- [jQuery](https://jquery.com/)
+- [MySQL](https://www.mysql.com/)
 
 ## Support
 
-If you encounter any issues while using [Name of the Visualization Software/Web App], please open an issue on the [GitHub repository](https://github.com/ABHRADEEP800/Visualization-Dashboard/issues). We will do our best to address your concerns as soon as possible.
+If you encounter any issues while using Astron, please open an issue on the [GitHub repository](https://github.com/ABHRADEEP800/Visualization-Dashboard/issues). We will do our best to address your concerns as soon as possible.
 
 ## Future Development
 
