@@ -1,6 +1,6 @@
 # Welcome to [Astron]!
 
-[![Build Status](https://travis-ci.org/github/ABHRADEEP800/Visualization-Dashboard.svg?branch=main)](https://travis-ci.org/github/username/repo)
+[![Build Status](https://travis-ci.org/github/ABHRADEEP800/Visualization-Dashboard.svg?branch=main)](https://travis-ci.org/github/ABHRADEEP800/Visualization-Dashboard)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 [ASTRON](https://astron.abhradeep.com/) is a powerful visualization tool built using PHP, MySQL, ChartJS and RESTful API in PHP. With its intuitive interface, users can create stunning charts and graphs based on large datasets. The app comes with numerous filters to help users quickly and easily filter out content based on their input.
