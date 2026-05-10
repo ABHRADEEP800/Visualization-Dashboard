@@ -1,5 +1,5 @@
 <?php
-require('../env/database.php');
+require ('../env/database.php');
 session_start();
 //chceck user login or not
 if(!isset($_SESSION['user'])){
@@ -291,7 +291,7 @@ function Alertshow(type, msg){
 
 
 if($filter ==='endyear'){ // check endyear applied
-$url = "http://localhost/Assignment/app/api_end_year.php"; //url for api
+$url = "https://astron.abhradeep.com/app/api_end_year.php"; //url for api
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -351,7 +351,7 @@ echo "<script>Alertshow('alert-success', 'End year filter applied.');</script>";
 }
 elseif($filter ==='topic'){// check topic applied
     
-    $url = "http://localhost/Assignment/app/api_topic.php";//url for api
+    $url = "https://astron.abhradeep.com/app/api_topic.php";//url for api
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -412,7 +412,7 @@ elseif($filter ==='topic'){// check topic applied
 }
 elseif($filter ==='sector'){ //check sector 
     
-    $url = "http://localhost/Assignment/app/api_sector.php"; //api url
+    $url = "https://astron.abhradeep.com/app/api_sector.php"; //api url
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -474,7 +474,7 @@ elseif($filter ==='sector'){ //check sector
 }
 elseif($filter ==='region'){ //check region
     
-    $url = "http://localhost/Assignment/app/api_region.php"; //api url
+    $url = "https://astron.abhradeep.com/app/api_region.php"; //api url
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -536,7 +536,7 @@ elseif($filter ==='region'){ //check region
 }
 elseif($filter ==='pest'){ //check pest
     
-    $url = "http://localhost/Assignment/app/api_pest.php"; //api url
+    $url = "https://astron.abhradeep.com/app/api_pest.php"; //api url
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -598,7 +598,7 @@ elseif($filter ==='pest'){ //check pest
 }
 elseif($filter ==='source'){ //check source
     
-    $url = "http://localhost/Assignment/app/api_source.php"; //api url
+    $url = "https://astron.abhradeep.com/app/api_source.php"; //api url
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -660,7 +660,7 @@ elseif($filter ==='source'){ //check source
 }
 elseif($filter ==='swot'){ // check swot
     
-    $url = "http://localhost/Assignment/app/api_swot.php"; //api url
+    $url = "https://astron.abhradeep.com/app/api_swot.php"; //api url
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -720,7 +720,7 @@ elseif($filter ==='swot'){ // check swot
 }
 elseif($filter ==='country'){ //check country
     
-    $url = "http://localhost/Assignment/app/api_country.php"; //api url
+    $url = "https://astron.abhradeep.com/app/api_country.php"; //api url
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -780,7 +780,7 @@ elseif($filter ==='country'){ //check country
 }
 elseif($filter ==='city'){ //check city
     
-    $url = "http://localhost/Assignment/app/api_city.php"; //api url 
+    $url = "https://astron.abhradeep.com/app/api_city.php"; //api url 
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -842,7 +842,7 @@ elseif($filter ==='city'){ //check city
  }
  else
  {  //if nothing filter applied
-    $url = "http://localhost/Assignment/app/api_end_year.php"; //api url
+    $url = "https://astron.abhradeep.com/app/api_end_year.php"; //api url
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
