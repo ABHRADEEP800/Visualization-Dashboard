@@ -1,0 +1,8 @@
+# Dev-only override — loaded automatically by `docker compose up` locally.
+# DO NOT use this file in production.
+# In production run: docker compose -f docker-compose.yml up -d
+services:
+  db:
+    # Expose MySQL port locally for direct access with DB tools
+    ports:
+      - "3306:3306"
