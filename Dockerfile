@@ -27,8 +27,4 @@ COPY . /var/www/html/
 # Set proper permissions; remove php-production.ini from web root
 # product/ must be writable by www-data for image uploads
 RUN rm -f /var/www/html/php-production.ini \
-    && rm -f /var/www/html/.dockerignore \
-    && chown -R www-data:www-data /var/www/html \
-    && find /var/www/html -type f -exec chmod 644 {} \; \
-    && find /var/www/html -type d -exec chmod 755 {} \; \
-    && chmod 775 /var/www/html/product
+    && rm -f /var/www/html/.dockerignore 
