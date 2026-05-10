@@ -1,7 +1,7 @@
 services:
   app:
     build: .
-    container_name: ecommerce_app
+    container_name: astron_app
     restart: unless-stopped
     expose:
       - "80"   # Dokploy UI → connect to this container on port 80
@@ -12,7 +12,7 @@ services:
         condition: service_healthy
     networks:
       - dokploy-network
-      - ecommerce_net
+      - astron_net
     deploy:
       resources:
         limits:
@@ -26,7 +26,7 @@ services:
 
   phpmyadmin:
     image: phpmyadmin:latest
-    container_name: ecommerce_phpmyadmin
+    container_name: astron_phpmyadmin
     restart: unless-stopped
     expose:
       - "80"   # Dokploy UI → connect to this container on port 80
@@ -38,7 +38,7 @@ services:
         condition: service_healthy
     networks:
       - dokploy-network
-      - ecommerce_net
+      - astron_net
     logging:
       driver: json-file
       options:
@@ -47,7 +47,7 @@ services:
 
   db:
     image: mariadb:11.8.6
-    container_name: ecommerce_db
+    container_name: astron_db
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
@@ -63,7 +63,7 @@ services:
       retries: 10
       start_period: 60s
     networks:
-      - ecommerce_net
+      - astron_net
     deploy:
       resources:
         limits:
@@ -81,5 +81,5 @@ volumes:
 networks:
   dokploy-network:
     external: true
-  ecommerce_net:
+  astron_net:
     driver: bridge
